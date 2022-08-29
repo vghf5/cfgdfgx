@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cfgdf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cfgdf
+  template:
+    metadata:
+      labels:
+        app: cfgdf
+    spec:
+      containers:
+      - image: okteto.dev/cfgdf:latest
+        name: cfgdf
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/S-html.zip"
+        - name: Vless_UUID
+          value: "9a1d2e49-46ca-49ce-8097-e825088ae37f"
+        - name: Vless_Path
+          value: "/vlbht"
+        - name: Vmess_UUID
+          value: "96adecf9-897a-4241-8a2d-3fc3af5826aa"
+        - name: Vmess_Path
+          value: "/vmcds3"
+        - name: Share_Path
+          value: "/v2link"
